@@ -1,0 +1,19 @@
+package com.spring.Spring.Jpa.response;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class StudentResponse {
+
+    private long id;
+
+    @JsonProperty("first_name")
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
+}
