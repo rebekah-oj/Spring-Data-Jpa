@@ -1,18 +1,21 @@
 package com.spring.Spring.Jpa.entity;
 
+import com.spring.Spring.Jpa.request.StudentRequest;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "student")
 public class Student {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -24,4 +27,10 @@ public class Student {
 
     @Column(name = "email")
     private String email;
+
+    public Student (StudentRequest studentRequest){
+        this.firstName = studentRequest.getFirstName();
+        this.lastName = studentRequest.getLastName();
+        this.email = studentRequest.getEmail();
+    }
 }
